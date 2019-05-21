@@ -8,7 +8,7 @@ import Map from './Components/Map/Map.js'
 
 class App extends Component {
   state = {
-    sightings: [{incident_occurence: 'Monday',
+    sightings: [{incident_occurrence: 'Monday',
       incident_location: 'Denver',
       latitude: 39.73,
       longitude: 104.999,
