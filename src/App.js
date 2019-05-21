@@ -41,13 +41,22 @@ class App extends Component {
 
   addNewSighting = event => {
     event.preventDefault()
-    alert('im creating a new sighting')
     const formData = new FormData(event.target)
-    console.log(formData);
-    this.setState({modalVisibility: this.state.modalVisibility ? false : true})
+    let postData = {
+      plausibility: formData.get('plausibility'),
+      incident_occurrence: formData.get('incident_occurrence'),
+      incident_location: formData.get('incident_location'),
+      witness_gibberish: formData.get('witness_gibberish'),
+      blood_alcohol_level: formData.get('blood_alcohol_level'),
+      responding_police_department_location: formData.get('responding_police_department_location')
+    }
+    fetch(BASE_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(postData)
+    }).then(this.toggleNewSightingModal)
   }
-  toggleNewSightingModal = event => {
-    event.preventDefault()
+  toggleNewSightingModal = _ => {
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
 

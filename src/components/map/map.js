@@ -13,7 +13,8 @@ export default class Map extends React.Component {
   };
 
 
-  mapmarkers = () => this.props.sightings.map(sighting => <MapMarker lat={sighting.incident_lat} lng={sighting.incident_long} />)
+
+  mapmarkers = () => this.props.sightings.map(sighting => <MapMarker lat={sighting.latitude} lng={sighting.longitude} key={sighting.id}/>)
 
   render() {
     {console.log(this.props.sightings)}
