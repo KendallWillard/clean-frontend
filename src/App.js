@@ -3,7 +3,7 @@ const BASE_URL = 'https://rocky-ridge-92628.herokuapp.com/sightings'
 import './App.css';
 import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
 import Header from './Components/Header/Header'
-import Map from './Components/Map/Map.js'
+// import Map from './Components/Map/Map.js'
 import FilterByDate from './Components/Filter/FilterByDate'
 import TopTenPlausibility from './Components/Filter/TopTenPlausibility'
 const store = []
@@ -20,23 +20,7 @@ class App extends Component {
   }
   state = {
     modalVisibility: false,
-    sightings: [{incident_occurrence: "2002-07-17T00:00:00.000",
-      incident_location: 'Denver',
-      latitude: 39.73,
-      longitude: -104.999,
-      blood_alcohol_level: 0.4,
-      responding_police_department_location: 'California',
-      plausibility: 8
-      },
-      {incident_occurrence: "2007-07-17T00:00:00.000",
-      incident_location: 'Los Angelos',
-      latitude: 34.65,
-      longitude: 118.453,
-      blood_alcohol_level: 0.9,
-      responding_police_department_location: 'LAPD',
-      plausibility: 3
-      }
-    ]
+    sightings: []
   }
 
   addNewSighting = event => {
@@ -75,7 +59,7 @@ class App extends Component {
       <div className="App">
         <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} toggleNewSightingModal={this.toggleNewSightingModal}/>
         <SightingsContainer sightings={this.state.sightings} />
-        <Map sightings={this.state.sightings}/>
+        {/* <Map sightings={this.state.sightings}/> */}
       </div>
     )
   }
