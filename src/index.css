@@ -1,5 +1,8 @@
 body {
+  background-image: url(https://images.wallpaperscraft.com/image/space_background_blue_dots_73340_2300x1300.jpg);
+  background-attachment: fixed;
   margin: 0;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   padding: 0;
   font-family: sans-serif;
 }
