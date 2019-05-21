@@ -32,7 +32,9 @@ class App extends Component {
       incident_location: formData.get('incident_location'),
       witness_gibberish: formData.get('witness_gibberish'),
       blood_alcohol_level: formData.get('blood_alcohol_level'),
-      responding_police_department_location: formData.get('responding_police_department_location')
+      responding_police_department_location: formData.get('responding_police_department_location'),
+      incident_lat: 0,
+      incident_long: 0
     }
     fetch(BASE_URL, {
       method: 'POST',

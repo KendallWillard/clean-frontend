@@ -51,7 +51,6 @@ export default class SightingsContainer extends React.Component {
 
 
     render() {
-        {console.log(this.state.currentSightings)}
         return(
             <div>
              <h1>UFO Sightings</h1>
