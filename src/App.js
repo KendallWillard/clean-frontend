@@ -3,7 +3,7 @@ const BASE_URL = 'https://rocky-ridge-92628.herokuapp.com/sightings'
 import './App.css';
 import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
 import Header from './Components/Header/Header'
-import Map from './Components/map/map.js'
+import Map from './Components/Map/Map.js'
 import FilterByDate from './Components/Filter/FilterByDate'
 import TopTenPlausibility from './Components/Filter/TopTenPlausibility'
 const store = []
@@ -89,10 +89,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
+        <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
         <SightingsContainer sightings={this.state.sightings} />
         <Map sightings={this.state.sightings}/>
         <FilterByDate filterByDate={this.filterByDate} />
-        <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
+
 
       </div>
     );
