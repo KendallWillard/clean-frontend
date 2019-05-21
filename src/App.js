@@ -38,33 +38,28 @@ class App extends Component {
       }
     ]
   }
-  filterByDate = () => {
-    this.setState({
-      sightings: this.state.sightings.sort((alpha, beta) => beta.incident_occurrence.localeCompare(alpha.incident_occurrence))
-    })
-  }
-  topTenPlausible = () => {
-    const topTenSightings = this.getTopTenSightings();
-    this.zeroOutState();
-    this.setState({
-      sightings: topTenSightings
-    })
-  }
+
   addNewSighting = event => {
     event.preventDefault()
-    alert('im creating a new sighting')
     const formData = new FormData(event.target)
-    console.log(formData);
+    let postData = {
+      plausibility: formData.get('plausibility'),
+      incident_occurrence: formData.get('incident_occurrence'),
+      incident_location: formData.get('incident_location'),
+      witness_gibberish: formData.get('witness_gibberish'),
+      blood_alcohol_level: formData.get('blood_alcohol_level'),
+      responding_police_department_location: formData.get('responding_police_department_location')
+    }
+    fetch(BASE_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(postData)
+    }).then(this.toggleNewSightingModal)
+  }
+  toggleNewSightingModal = _ => {
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
-  toggleNewSightingModal = event => {
-    event.preventDefault()
-    this.setState({modalVisibility: this.state.modalVisibility ? false : true})
-  }
-  getTopTenSightings = () => {
-    const sortedByPlausibility = this.state.sightings.sort((alpha, beta) => alpha.plausibility < beta.plausibility )
-    return sortedByPlausibility.slice(0, 10)
-  }
+
   zeroOutState = () => {
     this.setState({
       sightings: []
@@ -78,11 +73,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} toggleNewSightingModal={this.toggleNewSightingModal}/>
-        <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
-        <SightingsContainer sightings={this.state.sightings} />
+
         <Map sightings={this.state.sightings}/>
-        <FilterByDate filterByDate={this.filterByDate} />
+        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
+        <SightingsContainer sightings={this.state.sightings} />
       </div>
     );
   }
