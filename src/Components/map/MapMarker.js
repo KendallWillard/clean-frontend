@@ -6,7 +6,6 @@ export default class MapMarker extends React.Component {
 
 
   render() {
-
     return(
       <div>
         <p>{this.props.text}</p>

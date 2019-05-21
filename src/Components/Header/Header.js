@@ -8,8 +8,8 @@ export default class Header extends Component {
       <div>
         <h1>C.L.E.A.N.</h1>
         <p>Cenralized Locator for Extra-terristrial Alien Navigation</p>
-        <AddButton showNewSightingModal={this.props.showNewSightingModal}/>
-        <NewSightingModal modalVisibility={this.props.modalVisibility} addNewSighting={this.props.addNewSighting}/>
+        <AddButton toggleNewSightingModal={this.props.toggleNewSightingModal}/>
+        <NewSightingModal toggleNewSightingModal={this.props.toggleNewSightingModal} modalVisibility={this.props.modalVisibility} addNewSighting={this.props.addNewSighting}/>
       </div>
     )
   }

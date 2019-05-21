@@ -3,7 +3,7 @@ const BASE_URL = 'https://rocky-ridge-92628.herokuapp.com/sightings'
 import './App.css';
 import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
 import Header from './Components/Header/Header'
-import Map from './Components/map/map.js'
+import Map from './Components/Map/Map.js'
 import FilterByDate from './Components/Filter/FilterByDate'
 import TopTenPlausibility from './Components/Filter/TopTenPlausibility'
 const store = []
@@ -39,45 +39,35 @@ class App extends Component {
     ]
   }
 
-
-
-
-
   addNewSighting = event => {
     event.preventDefault()
     alert('im creating a new sighting')
+    const formData = new FormData(event.target)
+    console.log(formData);
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
-  showNewSightingModal = event => {
+  toggleNewSightingModal = event => {
     event.preventDefault()
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
-
-
 
   zeroOutState = () => {
     this.setState({
       sightings: []
     })
   }
-
   refillState = () => {
     this.setState({
       sightings: store
     })
   }
-
-
-
   render() {
     return (
       <div className="App">
+
         <Map sightings={this.state.sightings}/>
         <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
         <SightingsContainer sightings={this.state.sightings} />
-
-
-
       </div>
     );
   }
