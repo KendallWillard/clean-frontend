@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
+
 
 class App extends Component {
+
   addNewSighting = event => {
     event.preventDefault()
     alert('YUH YEET')
@@ -11,6 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header addNewSighting={this.addNewSighting} />
+        <SightingsContainer sightings={this.state} />
       </div>
     );
   }
