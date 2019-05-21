@@ -19,6 +19,7 @@ class App extends Component {
     .catch(error => console.error(error))
   }
   state = {
+    modalVisibility: false,
     sightings: [{incident_occurrence: "2002-07-17T00:00:00.000",
       incident_location: 'Denver',
       latitude: 39.73,
@@ -57,7 +58,12 @@ class App extends Component {
 
   addNewSighting = event => {
     event.preventDefault()
-    alert('YUH YEET')
+    alert('im creating a new sighting')
+    this.setState({modalVisibility: this.state.modalVisibility ? false : true})
+  }
+  showNewSightingModal = event => {
+    event.preventDefault()
+    this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
 
   getTopTenSightings = () => {
@@ -82,7 +88,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header addNewSighting={this.addNewSighting} />
+        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
         <SightingsContainer sightings={this.state.sightings} />
         <Map sightings={this.state.sightings}/>
         <FilterByDate filterByDate={this.filterByDate} />
