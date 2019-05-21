@@ -7,7 +7,7 @@ export default class NewSightingModal extends Component {
     return (
       !this.props.modalVisibility ? null :
       <div className='newSightingModal'>
-        <form onSubmit={this.props.addNewSighting}>
+        <form className='modalForm' onSubmit={this.props.addNewSighting}>
           <input placeholder='yeet'/>
           <input placeholder='meet'/>
           <button onSubmit={this.props.addNewSighting}>Submit</button>

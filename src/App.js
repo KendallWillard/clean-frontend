@@ -34,10 +34,10 @@ class App extends Component {
   addNewSighting = event => {
     event.preventDefault()
     alert('im creating a new sighting')
+    this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
   showNewSightingModal = event => {
     event.preventDefault()
-    // alert('im showing the modal')
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
   render() {
