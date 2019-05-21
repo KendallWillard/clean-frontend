@@ -5,15 +5,15 @@ import SightingsContainer from './Components/ContainerComponent/SightingsContain
 
 
 class App extends Component {
-  state = {
-    incident_occurance: "Incident occurance",
-    incident_location: "inc location",
-    blood_alcohol_level: "yikes",
-    police_department: "police"
+
+  addNewSighting = event => {
+    event.preventDefault()
+    alert('YUH YEET')
   }
   render() {
     return (
       <div className="App">
+        <Header addNewSighting={this.addNewSighting} />
         <SightingsContainer sightings={this.state} />
       </div>
     );
