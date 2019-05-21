@@ -78,6 +78,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} toggleNewSightingModal={this.toggleNewSightingModal}/>
         <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
         <SightingsContainer sightings={this.state.sightings} />
