@@ -2,7 +2,7 @@ import React from 'react'
 import SightingCard from './SightingCard'
 import FilterByDate from '../../Components/Filter/FilterByDate'
 import TopTenPlausibility from '../../Components/Filter/TopTenPlausibility'
-
+import Map from '../../Components/Map/Map.js'
 export default class SightingsContainer extends React.Component {
     state = {
         currIndex: 0,
@@ -35,7 +35,6 @@ export default class SightingsContainer extends React.Component {
 
 
   zeroOutState = () => {
-    console.log('fired')
     this.setState({
       currentSightings: []
     })
@@ -52,9 +51,11 @@ export default class SightingsContainer extends React.Component {
 
 
     render() {
+        {console.log(this.state.currentSightings)}
         return(
             <div>
              <h1>UFO Sightings</h1>
+             <Map sightings={this.state.currentSightings} />
              <FilterByDate filterByDate={this.filterByDate} />
              <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
              <button className='myButton' onClick={this.nextThirtySightings}>Next Thirty Sightings</button>

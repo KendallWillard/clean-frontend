@@ -12,7 +12,7 @@ export default class Map extends React.Component {
     zoom: 4
   };
 
-  mapmarkers = () => this.props.sightings.map(sighting => <MapMarker lat={sighting.latitude} lng={sighting.longitude} key={sighting.id}/>)
+  mapmarkers = () => this.props.sightings.splice(0,30).map(sighting => <MapMarker lat={sighting.incident_lat + (Math.floor(Math.random() * 80) - 60)} lng={sighting.incident_long + (Math.floor(Math.random() * 40) - 30)} key={sighting.id}/>)
 
   render() {
     return (
