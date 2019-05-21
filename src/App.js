@@ -3,7 +3,7 @@ const BASE_URL = 'https://rocky-ridge-92628.herokuapp.com/sightings'
 import './App.css';
 import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
 import Header from './Components/Header/Header'
-import Map from './Components/map/map.js'
+import Map from './Components/Map/Map.js'
 import FilterByDate from './Components/Filter/FilterByDate'
 import TopTenPlausibility from './Components/Filter/TopTenPlausibility'
 const store = []
@@ -38,18 +38,7 @@ class App extends Component {
       }
     ]
   }
-  filterByDate = () => {
-    this.setState({
-      sightings: this.state.sightings.sort((alpha, beta) => beta.incident_occurrence.localeCompare(alpha.incident_occurrence))
-    })
-  }
-  topTenPlausible = () => {
-    const topTenSightings = this.getTopTenSightings();
-    this.zeroOutState();
-    this.setState({
-      sightings: topTenSightings
-    })
-  }
+
   addNewSighting = event => {
     event.preventDefault()
     const formData = new FormData(event.target)
@@ -70,10 +59,7 @@ class App extends Component {
   toggleNewSightingModal = _ => {
     this.setState({modalVisibility: this.state.modalVisibility ? false : true})
   }
-  getTopTenSightings = () => {
-    const sortedByPlausibility = this.state.sightings.sort((alpha, beta) => alpha.plausibility < beta.plausibility )
-    return sortedByPlausibility.slice(0, 10)
-  }
+
   zeroOutState = () => {
     this.setState({
       sightings: []
@@ -88,11 +74,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} toggleNewSightingModal={this.toggleNewSightingModal}/>
-        <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
-        <SightingsContainer sightings={this.state.sightings} />
         <Map sightings={this.state.sightings}/>
-        <FilterByDate filterByDate={this.filterByDate} />
+        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
+        <SightingsContainer sightings={this.state.sightings} />
       </div>
     );
   }
