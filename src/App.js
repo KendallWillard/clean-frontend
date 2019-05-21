@@ -88,11 +88,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
-        <SightingsContainer sightings={this.state.sightings} />
-        <Map sightings={this.state.sightings}/>
         <FilterByDate filterByDate={this.filterByDate} />
         <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
+        <Map sightings={this.state.sightings}/>
+        <Header modalVisibility={this.state.modalVisibility} addNewSighting={this.addNewSighting} showNewSightingModal={this.showNewSightingModal}/>
+        <SightingsContainer sightings={this.state.sightings} />
+
+
 
       </div>
     );
