@@ -3,7 +3,7 @@ import SightingCard from './SightingCard'
 
 const SightingsContainer = (props) => {
 
-    const allTheSightings = props.sightings.map(sighting => <SightingCard {...sighting} key={Date.now()} />)
+    const allTheSightings = props.sightings.map((sighting, ndx) => <SightingCard {...sighting} key={Date.now() + ndx} />)
    
     return(
         <div>
