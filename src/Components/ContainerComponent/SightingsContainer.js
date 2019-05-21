@@ -55,7 +55,7 @@ export default class SightingsContainer extends React.Component {
             <div>
              <h1>UFO Sightings</h1>
              <Map sightings={this.state.currentSightings} />
-             <FilterByDate filterByDate={this.filterByDate} />
+             {/* <FilterByDate filterByDate={this.filterByDate} /> */}
              <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
              <button className='myButton' onClick={this.nextThirtySightings}>Next Thirty Sightings</button>
              {this.allTheSightings()}
