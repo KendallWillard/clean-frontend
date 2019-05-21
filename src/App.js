@@ -12,7 +12,7 @@ class App extends Component {
     sightings: [{incident_occurrence: "2002-07-17T00:00:00.000",
       incident_location: 'Denver',
       latitude: 39.73,
-      longitude: 104.999,
+      longitude: -104.999,
       blood_alcohol_level: 0.4,
       responding_police_department_location: 'California'},
       {incident_occurrence: "2007-07-17T00:00:00.000",
@@ -39,8 +39,8 @@ class App extends Component {
       <div className="App">
         <Header addNewSighting={this.addNewSighting} />
         <SightingsContainer sightings={this.state.sightings} />
+        <Map sightings={this.state.sightings}/>
         <FilterByDate filterByDate={this.filterByDate} />
-        <Map />
       </div>
     );
   }
