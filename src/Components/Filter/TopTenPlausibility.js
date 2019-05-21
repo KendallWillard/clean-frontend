@@ -4,9 +4,9 @@ export default class TopTenPlausibility extends React.Component {
 
 
     render() {
-        return (    
+        return (
             <div>
-                <button onClick={this.props.topTenPlausible}>Show Top 10 Most Plausible Cases</button>
+                <button className='myButton' onClick={this.props.topTenPlausible}>Show Top 10 Most Plausible Cases</button>
             </div>
         )
     }
