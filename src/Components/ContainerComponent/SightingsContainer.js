@@ -16,8 +16,9 @@ export default class SightingsContainer extends React.Component {
 
     nextThirtySightings = () => {
         this.setState({currIndex: this.state.currIndex + 30})
+        this.zeroOutState()
         this.setState({
-            currentSightings: this.props.sightings.splice(this.state.currIndex, this.state.currIndex + 30)
+            currentSightings: this.props.sightings.splice(this.state.currIndex, 30)
         })
     }
 
@@ -34,6 +35,7 @@ export default class SightingsContainer extends React.Component {
 
 
   zeroOutState = () => {
+    console.log('fired')
     this.setState({
       currentSightings: []
     })
