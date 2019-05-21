@@ -6,13 +6,13 @@ import TopTenPlausibility from '../../Components/Filter/TopTenPlausibility'
 export default class SightingsContainer extends React.Component {
     state = {
         currIndex: 0,
-        currentSightings: this.props.sightings.splice(0, 30) 
+        currentSightings: this.props.sightings.splice(0, 30)
     }
 
     allTheSightings = () => {
         return this.state.currentSightings.map((sighting, ndx) => <SightingCard {...sighting} key={sighting.id} />)
     }
-   
+
 
     nextThirtySightings = () => {
         this.setState({currIndex: this.state.currIndex + 30})
@@ -57,10 +57,9 @@ export default class SightingsContainer extends React.Component {
              <h1>UFO Sightings</h1>
              <FilterByDate filterByDate={this.filterByDate} />
              <TopTenPlausibility topTenPlausible={this.topTenPlausible}/>
-             <button onClick={this.nextThirtySightings}>Next Thirty Sightings</button>
+             <button className='myButton' onClick={this.nextThirtySightings}>Next Thirty Sightings</button>
              {this.allTheSightings()}
             </div>
         )
     }
 }
-

@@ -6,7 +6,7 @@ export default class FilterByDate extends React.Component {
     render() {
         return(
             <div>
-                <button onClick={this.props.filterByDate}>Filter By Date</button>
+                <button className='myButton' onClick={this.props.filterByDate}>Filter By Date</button>
             </div>
         )
     }
