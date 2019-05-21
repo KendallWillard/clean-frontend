@@ -12,12 +12,9 @@ export default class Map extends React.Component {
     zoom: 4
   };
 
-
-
   mapmarkers = () => this.props.sightings.map(sighting => <MapMarker lat={sighting.latitude} lng={sighting.longitude} key={sighting.id}/>)
 
   render() {
-    {console.log(this.props.sightings)}
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
