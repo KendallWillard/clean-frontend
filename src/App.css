@@ -60,3 +60,17 @@
 	position:relative;
 	top:1px;
 }
+
+.sightingCard {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #49ff18;
+  text-shadow: none;
+}
+
+.title {
+  font-size: 90px;
+}
+
+.subtitle {
+  font-size: 45px;
+}
