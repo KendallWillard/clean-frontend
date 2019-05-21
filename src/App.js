@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Header from './Components/Header/Header.js'
-import logo from './logo.svg';
+
 import './App.css';
 import SightingsContainer from './Components/ContainerComponent/SightingsContainer'
+import Header from './Components/Header/Header'
+import Map from './Components/Map/Map'
 
 
 class App extends Component {
-
+  
   addNewSighting = event => {
     event.preventDefault()
     alert('YUH YEET')
