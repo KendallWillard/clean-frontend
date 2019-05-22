@@ -4,6 +4,7 @@ import MapMarker from './MapMarker'
 import apiConfig from '../../../apiKeys'
 
 export default class Map extends React.Component {
+  
   static defaultProps = {
     center: {
       lat: 39.73,
