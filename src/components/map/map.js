@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapMarker from './MapMarker'
-
+import apiConfig from '../../../apiKeys'
 
 export default class Map extends React.Component {
   static defaultProps = {
@@ -18,7 +18,7 @@ export default class Map extends React.Component {
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: ''}}
+          bootstrapURLKeys={{ key: apiConfig.googleMap}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
